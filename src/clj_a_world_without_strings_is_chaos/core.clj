@@ -8,3 +8,13 @@ Characters are expensive, and the accountants tell me we can’t hand them out w
   ((frequencies "fhqwhgads") \h)
 
   (count (re-seq #"h" "fhqwhgads")))
+
+(comment
+  "1 - Trapeze Part
+
+Sometimes I try reading sentences right-to-left to make my life more exciting. Results have been
+mixed. Given a string x, is it identical when read forwards and backwards?"
+
+  (let [word  "wasitaratisaw"
+        [a b] (split-at (/ (count word) 2) word)]
+    (= (rest (reverse a)) b)))
