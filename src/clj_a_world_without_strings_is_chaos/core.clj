@@ -18,3 +18,14 @@ mixed. Given a string x, is it identical when read forwards and backwards?"
   (let [word  "wasitaratisaw"
         [a b] (split-at (/ (count word) 2) word)]
     (= (rest (reverse a)) b)))
+
+(comment
+  "2 - Duplicity
+
+One is the loneliest number. Given a string x, produce a list of characters which appear more
+than once in x."
+
+  (->> (frequencies "applause")
+       (filter (comp (partial <= 2) val))
+       keys
+       (apply str)))
