@@ -38,3 +38,17 @@ Given strings x and y, do both strings contain the same letters, possibly in a d
 
   (= (set "toptea")
      (set "teapot")))
+
+(comment
+  "4 - Precious Snowflakes
+
+It’s virtuous to be unique, just like everyone else. Given a string x, find all the characters which
+occur exactly once, in the order they appear."
+
+  (let [s "somewhat heterogenous"]
+    (->> (filter (->> (frequencies s)
+                      (filter (comp #{1} val))
+                      keys
+                      set)
+                 s)
+         (apply str))))
