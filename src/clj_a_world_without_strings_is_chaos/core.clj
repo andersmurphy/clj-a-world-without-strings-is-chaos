@@ -29,3 +29,12 @@ than once in x."
        (filter (comp (partial <= 2) val))
        keys
        (apply str)))
+
+(comment
+  "3 - Sort Yourself Out
+
+Alphabetical filing systems are passe. It’s far more Zen to organize words by their histograms!
+Given strings x and y, do both strings contain the same letters, possibly in a different order?"
+
+  (= (set "toptea")
+     (set "teapot")))
