@@ -130,3 +130,11 @@ Vowels make prose far too… pronounceable. Given a string x, replace all the vo
 y) with underscores."
 
   (str/replace "Several normal words" #"[aeiouyAEIOUY]" "_"))
+
+(comment
+  "12 - Cnsnnts Rdx
+
+On second thought, I’ve deemed vowels too vile for placeholders. Given a string x, remove all the
+vowels entirely."
+
+  (str/replace "FLAPJACKS" #"[aeiouyAEIOUY]" ""))
