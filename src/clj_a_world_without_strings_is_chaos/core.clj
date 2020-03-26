@@ -1,4 +1,5 @@
-(ns clj-a-world-without-strings-is-chaos.core)
+(ns clj-a-world-without-strings-is-chaos.core
+  (:require [clojure.string :as str]))
 
 (comment
   "0 - Multiplicity
@@ -107,3 +108,19 @@ the characters of x corresponding to a 1 in y."
 
   (->> (map (fn [x y] (when (= y 1) x)) "embiggener" [0 0 1 1 1 1 0 0 1 1])
        (apply str )))
+  (->> (map (fn [x y] ({1 x} y)) "embiggener" [0 0 1 1 1 1 0 0 1 1])
+       (apply str)))
+
+(comment
+  "10 - Expansion Mansion
+
+Wait, strike that- reverse it. Given a string x and a boolean vector y, spread the characters of x to
+the positions of 1s in y, filling intervening characters with underscores."
+
+  (defn expansion-mansion [word b-array]
+    (lazy-seq
+     (let [[w & ws] word [b & bs] b-array]
+       (cond (= 1 b) (cons w (expansion-mansion ws bs))
+             (= 0 b) (cons "_" (expansion-mansion word bs))))))
+
+  (apply str (expansion-mansion "bigger" [0 0 1 1 1 1 0 0 1 1])))
