@@ -98,3 +98,12 @@ order of the characters in each word."
   (->> (str/split "a few words in a sentence" #"\s")
        (map (comp (partial apply str) reverse))
        (str/join " " )))
+
+(comment
+  "9 - Compression Session
+
+Let’s cut some text down to size. Given a string x and a boolean vector y of the same length, extract
+the characters of x corresponding to a 1 in y."
+
+  (->> (map (fn [x y] (when (= y 1) x)) "embiggener" [0 0 1 1 1 1 0 0 1 1])
+       (apply str )))
