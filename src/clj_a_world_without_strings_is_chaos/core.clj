@@ -138,3 +138,14 @@ On second thought, I’ve deemed vowels too vile for placeholders. Given a strin
 vowels entirely."
 
   (str/replace "FLAPJACKS" #"[aeiouyAEIOUY]" ""))
+
+(comment
+  "13 - TITLE REDACTED
+
+Given a string x consisting of words separated by spaces (as above), and a string y, replace all words
+in x which are the same as y with a series of xes."
+
+  (let [word "fish"]
+    (str/replace "one fish two fish"
+                 (re-pattern word)
+                 (apply str (take (count word) (repeat "X"))))))
