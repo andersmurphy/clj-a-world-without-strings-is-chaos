@@ -74,3 +74,16 @@ work the same way. Given strings x and y, is x a rotation of the characters in y
 Sometimes small things come first. Given a list of strings x, sort the strings by length, ascending."
 
   (sort-by count ["books" "apple" "peanut" "aardvark" "melon" "pie"]))
+
+(comment
+  "7 - Popularity Contest
+
+Sixty-two thousand four hundred repetitions make one truth. Given a string x, identify the character
+ which occurs most frequently. If more than one character occurs the same number of times, you may
+choose arbitrarily. Is it harder to find all such characters?"
+
+  (->> (frequencies "CCCBBBAA")
+       (sort-by second >)
+       first
+       key
+       str))
