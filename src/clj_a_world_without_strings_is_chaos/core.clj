@@ -149,3 +149,20 @@ in x which are the same as y with a series of xes."
     (str/replace "one fish two fish"
                  (re-pattern word)
                  (apply str (take (count word) (repeat "X"))))))
+
+(comment
+  "14 - It’s More Fun to Permute
+
+My ingenious histogram-based filing system has a tiny flaw: some people insist that the order of
+letters in their names is significant, and now I need to re-file everything. Given a string x,
+generate a list of all possible reorderings of the characters in x. Can you do this non-recursively?"
+
+  (defn permutations [s]
+    (lazy-seq
+     (if (next s)
+       (for [head s
+             tail (permutations (remove #{head} s))]
+         (cons head tail))
+       [s])))
+
+  (map (partial apply str) (permutations "xyz")))
