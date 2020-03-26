@@ -67,3 +67,10 @@ work the same way. Given strings x and y, is x a rotation of the characters in y
          (take (count a))
          (apply str)
          (= a))))
+
+(comment
+  "6 - Size Matters
+
+Sometimes small things come first. Given a list of strings x, sort the strings by length, ascending."
+
+  (sort-by count ["books" "apple" "peanut" "aardvark" "melon" "pie"]))
