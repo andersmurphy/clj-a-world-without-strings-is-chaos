@@ -87,3 +87,14 @@ choose arbitrarily. Is it harder to find all such characters?"
        first
        key
        str))
+
+(comment
+  "8 - esreveR A ecnetneS
+
+Little-endian encoding is such a brilliant idea I want to try applying it to English. Given a string x
+ consisting of words (one or more non-space characters) which are separated by spaces, reverse the
+order of the characters in each word."
+
+  (->> (str/split "a few words in a sentence" #"\s")
+       (map (comp (partial apply str) reverse))
+       (str/join " " )))
