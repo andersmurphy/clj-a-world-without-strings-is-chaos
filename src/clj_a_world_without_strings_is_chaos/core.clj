@@ -106,8 +106,6 @@ order of the characters in each word."
 Let’s cut some text down to size. Given a string x and a boolean vector y of the same length, extract
 the characters of x corresponding to a 1 in y."
 
-  (->> (map (fn [x y] (when (= y 1) x)) "embiggener" [0 0 1 1 1 1 0 0 1 1])
-       (apply str )))
   (->> (map (fn [x y] ({1 x} y)) "embiggener" [0 0 1 1 1 1 0 0 1 1])
        (apply str)))
 
@@ -124,3 +122,11 @@ the positions of 1s in y, filling intervening characters with underscores."
              (= 0 b) (cons "_" (expansion-mansion word bs))))))
 
   (apply str (expansion-mansion "bigger" [0 0 1 1 1 1 0 0 1 1])))
+
+(comment
+  "11 - C_ns_n_nts
+
+Vowels make prose far too… pronounceable. Given a string x, replace all the vowels (a, e, i, o, u, or
+y) with underscores."
+
+  (str/replace "Several normal words" #"[aeiouyAEIOUY]" "_"))
