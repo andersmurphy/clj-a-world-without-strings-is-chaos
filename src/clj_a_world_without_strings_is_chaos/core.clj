@@ -52,3 +52,18 @@ occur exactly once, in the order they appear."
                       set)
                  s)
          (apply str))))
+
+(comment
+  "5 - Musical Chars
+
+Imagine four chars on the edge of a cliff. Say a direct copy of the char nearest the cliff is sent
+to the back of the line of char and takes the place of the first char. The formerly first char
+becomes the second, the second becomes the third, and the fourth falls off the cliff. Strings
+work the same way. Given strings x and y, is x a rotation of the characters in y?"
+
+  (let [a "foobar" b "barfoo"]
+    (->> (concat b b)
+         (drop-while (partial not= (first a)))
+         (take (count a))
+         (apply str)
+         (= a))))
